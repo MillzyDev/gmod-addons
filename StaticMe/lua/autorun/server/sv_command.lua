@@ -4,16 +4,16 @@ local commands = {}
 
 local function handle_command(sender, text)
     if (text:find("^/") ~= nil) then 
-        args = {}
+        local args = {}
 
         for w in text:gmatch("%w+") do 
             table.insert(args, w)
         end
 
-        command = string.sub(args[1], 1, -1)    
+        local command = string.sub(args[1], 1, -1)    
         table.remove(args, 1)
 
-        exec = commands[command]
+        local exec = commands[command]
 
         if (exec == nil) then
             return text
